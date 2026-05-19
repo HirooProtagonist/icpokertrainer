@@ -1,0 +1,63 @@
+type UserProfile = 
+ record {
+   acceptableCount: nat;
+   correctCount: nat;
+   createdAt: Time;
+   isPremium: bool;
+   mistakeCount: nat;
+   "principal": principal;
+   sessions: vec SessionSummary;
+   spotStats: vec record {
+                    text;
+                    SpotStat;
+                  };
+   totalHands: nat;
+   totalSessions: nat;
+ };
+type Time = int;
+type SpotStat = 
+ record {
+   attempts: nat;
+   mistakes: nat;
+ };
+type SessionSummary = 
+ record {
+   acceptableCount: nat;
+   completedAt: Time;
+   correctCount: nat;
+   handsPlayed: nat;
+   mistakeCount: nat;
+   mode: opt text;
+   scenario: text;
+   stackRange: text;
+ };
+type SessionData = 
+ record {
+   acceptableCount: nat;
+   completedAt: Time;
+   correctCount: nat;
+   handsPlayed: nat;
+   icmContext: opt IcmContext;
+   mistakeCount: nat;
+   mode: opt text;
+   scenario: text;
+   spotResults: vec record {
+                      text;
+                      text;
+                    };
+   stackRange: text;
+ };
+type IcmContext = 
+ record {
+   heroIndex: opt nat;
+   payoutType: opt text;
+   payouts: vec float64;
+   playersRemaining: nat;
+   stacks: vec float64;
+   stage: opt text;
+ };
+service : {
+  ensureProfile: () -> ();
+  getProfile: () -> (opt UserProfile) query;
+  saveSession: (data: SessionData) -> ();
+}

@@ -1,0 +1,46 @@
+// Version: 1.0.0
+type Data__791452850<K, V> =
+  {var count : Nat__490723111; kvs : [var ?(K, V)]};
+type Int__270357528 = Int__616954475;
+type Int__616954475 = Int;
+type Internal__8484328<K, V> =
+  {children : [var ?Node__46230540<K, V>]; data : Data__791452850<K, V>};
+type Leaf__809889148<K, V> = {data : Data__791452850<K, V>};
+type Nat__490723111 = Nat__920180692;
+type Nat__920180692 = Nat;
+type Node__46230540<K, V> =
+  {#internal : Internal__8484328<K, V>; #leaf : Leaf__809889148<K, V>};
+type SessionSummary__157470182 =
+  {
+    acceptableCount : Nat;
+    completedAt : Time__900049286;
+    correctCount : Nat;
+    handsPlayed : Nat;
+    mistakeCount : Nat;
+    mode : ?Text;
+    scenario : Text;
+    stackRange : Text
+  };
+type SpotStat__405137595 = {attempts : Nat; mistakes : Nat};
+type Time__796480547 = Int__270357528;
+type Time__900049286 = Time__796480547;
+type UserProfile__1009003526 =
+  {
+    acceptableCount : Nat;
+    correctCount : Nat;
+    createdAt : Time__900049286;
+    isPremium : Bool;
+    mistakeCount : Nat;
+    principal : Principal;
+    sessions : [SessionSummary__157470182];
+    spotStats : [(Text, SpotStat__405137595)];
+    totalHands : Nat;
+    totalSessions : Nat
+  };
+actor {
+  stable profiles :
+    {
+      var root : Node__46230540<Principal, UserProfile__1009003526>;
+      var size : Nat__490723111
+    }
+};

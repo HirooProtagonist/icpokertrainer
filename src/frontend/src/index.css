@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-display: "Space Grotesk";
+    --font-body: "Satoshi";
+    --font-mono: "JetBrains Mono";
+    --radius: 0.625rem;
+
+    --background: 0.125 0 0;
+    --foreground: 0.92 0 0;
+    --card: 0.155 0 0;
+    --card-foreground: 0.98 0 0;
+    --popover: 0.175 0 0;
+    --popover-foreground: 0.95 0 0;
+
+    --primary: 0.55 0.18 142;
+    --primary-foreground: 0.95 0 0;
+
+    --secondary: 0.65 0.12 40;
+    --secondary-foreground: 0.15 0 0;
+    --muted: 0.25 0 0;
+    --muted-foreground: 0.65 0 0;
+
+    --accent: 0.68 0.14 55;
+    --accent-foreground: 0.125 0 0;
+
+    --destructive: 0.58 0.25 15;
+    --destructive-foreground: 0.98 0 0;
+
+    --border: 0.22 0.02 145;
+    --input: 0.18 0.01 130;
+    --ring: 0.68 0.14 55;
+
+    --chart-1: 0.65 0.22 40;
+    --chart-2: 0.58 0.19 265;
+    --chart-3: 0.48 0.21 22;
+    --chart-4: 0.72 0.15 55;
+    --chart-5: 0.65 0.2 145;
+
+    --sidebar: 0.98 0 0;
+    --sidebar-foreground: 0.15 0 0;
+    --sidebar-primary: 0.35 0 0;
+    --sidebar-primary-foreground: 0.98 0 0;
+    --sidebar-accent: 0.95 0 0;
+    --sidebar-accent-foreground: 0.25 0 0;
+    --sidebar-border: 0.9 0 0;
+    --sidebar-ring: 0.35 0 0;
+  }
+
+  .dark {
+    --background: 0.11 0 0;
+    --foreground: 0.94 0 0;
+    --card: 0.14 0.01 145;
+    --card-foreground: 0.96 0 0;
+    --popover: 0.17 0.01 140;
+    --popover-foreground: 0.95 0 0;
+
+    --primary: 0.62 0.19 265;
+    --primary-foreground: 0.11 0 0;
+
+    --secondary: 0.72 0.14 55;
+    --secondary-foreground: 0.11 0 0;
+    --muted: 0.22 0.01 145;
+    --muted-foreground: 0.62 0 0;
+
+    --accent: 0.72 0.16 55;
+    --accent-foreground: 0.11 0 0;
+
+    --destructive: 0.62 0.26 15;
+    --destructive-foreground: 0.98 0 0;
+
+    --border: 0.19 0.02 140;
+    --input: 0.15 0.02 135;
+    --ring: 0.72 0.16 55;
+
+    --chart-1: 0.65 0.22 40;
+    --chart-2: 0.65 0.2 265;
+    --chart-3: 0.62 0.22 22;
+    --chart-4: 0.75 0.18 55;
+    --chart-5: 0.68 0.22 145;
+
+    --sidebar: 0.18 0 0;
+    --sidebar-foreground: 0.95 0 0;
+    --sidebar-primary: 0.8 0 0;
+    --sidebar-primary-foreground: 0.145 0 0;
+    --sidebar-accent: 0.22 0 0;
+    --sidebar-accent-foreground: 0.85 0 0;
+    --sidebar-border: 0.28 0 0;
+    --sidebar-ring: 0.8 0 0;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+}
+
+@layer utilities {
+  @font-face {
+    font-family: "Space Grotesk";
+    src: url("/assets/fonts/SpaceGrotesk.woff2") format("woff2");
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Satoshi";
+    src: url("/assets/fonts/Satoshi.woff2") format("woff2");
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "JetBrains Mono";
+    src: url("/assets/fonts/JetBrainsMono.woff2") format("woff2");
+    font-display: swap;
+  }
+
+  .button-chip {
+    @apply relative inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold text-base transition-all duration-150 active:scale-95;
+  }
+
+  .button-chip:focus-visible {
+    @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-background;
+  }
+
+  .btn-action-primary {
+    @apply button-chip bg-accent hover:bg-opacity-90 text-accent-foreground shadow-md hover:shadow-lg;
+  }
+
+  .btn-action-secondary {
+    @apply button-chip bg-primary/80 hover:bg-primary text-primary-foreground shadow-sm hover:shadow-md;
+  }
+
+  .btn-action-destructive {
+    @apply button-chip bg-destructive hover:bg-opacity-90 text-destructive-foreground shadow-md hover:shadow-lg;
+  }
+
+  .card-playing {
+    @apply relative aspect-[63/88] bg-white rounded shadow-lg hover:shadow-xl transition-shadow duration-200 flex items-center justify-center border-2 border-[oklch(0.1_0_0_/_10%)];
+  }
+
+  .range-cell {
+    @apply relative aspect-square cursor-pointer transition-transform duration-100 hover:scale-110 rounded-sm;
+  }
+
+  .table-felt {
+    background: radial-gradient(
+      ellipse at 50% 40%,
+      oklch(0.18 0.06 145) 0%,
+      oklch(0.13 0.04 145) 45%,
+      oklch(0.09 0.01 145) 100%
+    );
+  }
+
+  .chip-button {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35), 0 1px 3px rgba(0, 0, 0, 0.25);
+    transition: box-shadow 150ms ease, transform 150ms ease;
+  }
+  .chip-button:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45), 0 2px 6px rgba(0, 0, 0, 0.3);
+    transform: translateY(-1px);
+  }
+  .chip-button:active {
+    transform: translateY(0) scale(0.97);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35), 0 1px 3px rgba(0, 0, 0, 0.25);
+  }
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}

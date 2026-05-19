@@ -1,0 +1,23 @@
+{
+  "overview": "ICPokerTrainer — покерный префлоп GTO-тренажёр для турнирных игроков. Тренирует принятие оптимальных решений (пуш/колл/фолд) на префлопе с учётом Nash-равновесия и размера стека.",
+  "features": [
+    "Three training scenarios: open-shove (RFI), call vs shove, BB defence",
+    "Nash push/fold ranges for 15/20/25bb stacks",
+    "13x13 range matrix with three-zone diagonal gradient visualization",
+    "Session of 10 hands with all 169 possible hands",
+    "Three-level verdict: correct / acceptable / mistake",
+    "Dynamic action buttons per scenario with keyboard shortcuts",
+    "Session summary with full decision history"
+  ],
+  "category": "education-training",
+  "tags": [
+    "poker",
+    "gto",
+    "trainer",
+    "tournament",
+    "nash",
+    "preflop",
+    "icm"
+  ],
+  "last_updated": "2026-05-08T19:09:31.245Z"
+}
