@@ -37,7 +37,7 @@ const SCENARIOS: ScenarioOption[] = [
   },
 ];
 
-const STACKS: StackSize[] = [10, 15, 20, 25];
+const STACKS: StackSize[] = [15, 20, 25];
 
 // ─── Scenario stats helper ───────────────────────────────────────────────────────────────────
 
@@ -265,13 +265,7 @@ export function SetupScreen({ onStart }: SetupScreenProps) {
               <span className="font-mono text-base">{s}bb</span>
               <br />
               <span className="text-[10px] opacity-60 font-normal">
-                {s === 10
-                  ? "хайпер"
-                  : s === 15
-                    ? "турбо"
-                    : s === 20
-                      ? "стандарт"
-                      : "глубже"}
+                {s === 15 ? "турбо" : s === 20 ? "стандарт" : "глубже"}
               </span>
             </button>
           ))}

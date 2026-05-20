@@ -130,11 +130,9 @@ const spotCellCache = new Map<string, Map<string, RangeCell>>();
 
 // Preload all known spots at module init so calcResult hits cache synchronously
 const KNOWN_SPOT_IDS = [
-  "open_BTN_none_6max_10bb_nash",
   "open_BTN_none_6max_15bb_nash",
   "open_BTN_none_6max_20bb_nash",
   "open_BTN_none_6max_25bb_nash",
-  "call_shove_BB_BTN_6max_10bb_nash",
   "call_shove_BB_BTN_6max_15bb_nash",
   "call_shove_BB_BTN_6max_20bb_nash",
   "call_shove_BB_BTN_6max_25bb_nash",
@@ -393,7 +391,7 @@ export function Trainer() {
                 Посмотреть диапазон при:
               </span>
               <div className="flex gap-1">
-                {([10, 15, 20, 25] as StackSize[]).map((s) => (
+                {([15, 20, 25] as StackSize[]).map((s) => (
                   <button
                     key={s}
                     type="button"
